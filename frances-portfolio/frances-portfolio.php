@@ -3,7 +3,7 @@
 * Plugin Name:       Frances Portfolio
 * Plugin URI:        https://francescalulo.com/
 * Description:       Custom post types, taxonomies, and REST API fields for the headless portfolio.
-* Version:           1.1.0
+* Version:           1.2.0
 * Requires at least: 6.5
 * Requires PHP:      7.0
 * Author:            Frances Calulo
@@ -21,3 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Custom Post Types and Taxonomies.
 require_once plugin_dir_path( __FILE__ ) . 'includes/post-types-taxonomies.php';
+
+// ACF Local JSON (field groups saved to /acf-json for Git).
+require_once plugin_dir_path( __FILE__ ) . 'includes/acf-json.php';
