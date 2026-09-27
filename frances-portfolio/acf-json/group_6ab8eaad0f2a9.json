@@ -328,6 +328,27 @@
                     "parent_repeater": "field_6ab8edc525980"
                 }
             ]
+        },
+        {
+            "key": "field_6ab90b9cb3345",
+            "label": "Project Type",
+            "name": "project_type",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Short label, e.g. Database, Game Design, Ecommerce, Headless CMS. Shown in the case-study eyebrow and Next Up.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "Database",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -351,5 +372,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1790506300
+    "modified": 1790512078
 }

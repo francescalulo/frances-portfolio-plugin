@@ -3,27 +3,6 @@
     "title": "Experience Details",
     "fields": [
         {
-            "key": "field_6ab8f716ca10f",
-            "label": "Role",
-            "name": "role",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "Store Manager",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_6ab8f76bca110",
             "label": "Location",
             "name": "location",
@@ -64,27 +43,6 @@
             "placeholder": "2019-2024",
             "prepend": "",
             "append": ""
-        },
-        {
-            "key": "field_6ab8f7b5ca112",
-            "label": "Overview",
-            "name": "overview",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "rows": 3,
-            "placeholder": "",
-            "new_lines": ""
         },
         {
             "key": "field_6ab8f806ca113",
@@ -152,48 +110,6 @@
                     "parent_repeater": "field_6ab8f837ca114"
                 }
             ]
-        },
-        {
-            "key": "field_6ab8f875ca115",
-            "label": "Transferable Skill",
-            "name": "transferable_skill",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "rows": 3,
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_6ab8f8b2ca116",
-            "label": "Key Takeaway",
-            "name": "key_takeaway",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "rows": 3,
-            "placeholder": "",
-            "new_lines": ""
         }
     ],
     "location": [
@@ -217,5 +133,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1790507560
+    "modified": 1790511996
 }
