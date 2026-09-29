@@ -204,6 +204,27 @@
             "new_lines": ""
         },
         {
+            "key": "field_6abaf89e816ce",
+            "label": "Key Takeaway (Coded)",
+            "name": "key_takeaway_coded",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Code-style version shown before DecodeText reveals the Key Takeaway. Leave empty to use a random-character shuffle.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 3,
+            "placeholder": "const lesson = \"three builds, one interface\"",
+            "new_lines": ""
+        },
+        {
             "key": "field_6ab8ed6d2597e",
             "label": "Site Preview Image",
             "name": "site_preview_image",
@@ -372,5 +393,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1790512078
+    "modified": 1790638338
 }
