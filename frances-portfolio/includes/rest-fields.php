@@ -3,7 +3,6 @@
  * Custom REST API fields
  * Adds a next_project field to Work (portfolio-project) posts
  * for the Work Detail "Next Up" section.
- * Based on the course fwd-rest-api-plugin (register_rest_field()).
  *
  * @link https://developer.wordpress.org/reference/functions/register_rest_field/
  * @package Frances_Portfolio
@@ -82,7 +81,7 @@ function fcp_get_next_project( $post ) {
 
 	return array(
 		'id'           => $next_id,
-		'title'        => get_the_title( $next_id ),
+		'title'        => html_entity_decode( get_the_title( $next_id ), ENT_QUOTES, 'UTF-8' ),
 		'slug'         => get_post_field( 'post_name', $next_id ),
 		'project_type' => function_exists( 'get_field' ) ? (string) get_field( 'project_type', $next_id ) : '',
 		'position'     => $next_index + 1,
