@@ -3,6 +3,24 @@
     "title": "About Page",
     "fields": [
         {
+            "key": "field_6ad72b6877b69",
+            "label": "Core Competencies",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
             "key": "field_6abad552723f1",
             "label": "Core Competencies",
             "name": "core_competencies",
@@ -47,6 +65,24 @@
                     "parent_repeater": "field_6abad552723f1"
                 }
             ]
+        },
+        {
+            "key": "field_6ad72bab77b6a",
+            "label": "FAQs",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6abad598723f2",
@@ -138,5 +174,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1790629512
+    "modified": 1792487744
 }

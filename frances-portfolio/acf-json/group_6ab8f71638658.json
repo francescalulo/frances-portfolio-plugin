@@ -3,6 +3,24 @@
     "title": "Experience Details",
     "fields": [
         {
+            "key": "field_6ad729d3d7f2e",
+            "label": "Role",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
             "key": "field_6ab8f76bca110",
             "label": "Location",
             "name": "location",
@@ -45,6 +63,24 @@
             "append": ""
         },
         {
+            "key": "field_6ad72a1dd7f2f",
+            "label": "Story",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
             "key": "field_6ab8f806ca113",
             "label": "Story",
             "name": "story",
@@ -64,6 +100,24 @@
             "rows": 5,
             "placeholder": "",
             "new_lines": "wpautop"
+        },
+        {
+            "key": "field_6ad72a3fd7f30",
+            "label": "Skills",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6ab8f837ca114",
@@ -133,5 +187,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1790511996
+    "modified": 1792487744
 }

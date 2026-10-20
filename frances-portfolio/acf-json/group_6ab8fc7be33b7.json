@@ -3,6 +3,24 @@
     "title": "Site Settings",
     "fields": [
         {
+            "key": "field_6ad72acf3e766",
+            "label": "Contact",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
             "key": "field_6ab8fc7c5d64d",
             "label": "Contact Email",
             "name": "contact_email",
@@ -63,6 +81,24 @@
             "placeholder": "Vancouver, BC",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_6ad72ae73e767",
+            "label": "Socials",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6ab8fcfb5d650",
@@ -159,5 +195,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1790508560
+    "modified": 1792487744
 }
