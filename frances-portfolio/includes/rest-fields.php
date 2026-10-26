@@ -1,0 +1,103 @@
+<?php
+/**
+ * Custom REST API fields
+ * Adds a next_project field to Work (portfolio-project) posts
+ * for the Work Detail "Next Up" section.
+ *
+ * @link https://developer.wordpress.org/reference/functions/register_rest_field/
+ * @package Frances_Portfolio
+ */
+
+// Stop direct access to this file.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Register REST API fields.
+ */
+function fcp_register_rest_fields() {
+
+	// Register a 'next_project' REST API field for the Work CPT.
+	register_rest_field(
+		'portfolio-project', // REST object name.
+		'next_project',      // REST field name.
+		array(
+			'get_callback'    => 'fcp_get_next_project',
+			'update_callback' => null,
+			'schema'          => array(
+				'description' => __( 'The next project for the Work Detail "Next Up" link (the last project loops back to the first).', 'frances-portfolio' ),
+				'type'        => array( 'object', 'null' ),
+				'context'     => array( 'view', 'edit', 'embed' ),
+				'readonly'    => true,
+				'properties'  => array(
+					'id'           => array( 'type' => 'integer' ),
+					'title'        => array( 'type' => 'string' ),
+					'slug'         => array( 'type' => 'string' ),
+					'project_type' => array( 'type' => 'string' ),
+					'position'     => array( 'type' => 'integer' ),
+					'total'        => array( 'type' => 'integer' ),
+				),
+			),
+		)
+	);
+}
+add_action( 'rest_api_init', 'fcp_register_rest_fields' );
+
+/**
+ * Get all published Work post IDs in display order
+ * (the "Order" box first, then title A–Z).
+ * Saved in a static variable so the query only runs once per request.
+ *
+ * @return array Ordered post IDs.
+ */
+function fcp_get_ordered_project_ids() {
+	static $ids = null;
+
+	if ( null === $ids ) {
+		$ids = get_posts(
+			array(
+				'post_type'      => 'portfolio-project',
+				'post_status'    => 'publish',
+				'posts_per_page' => -1,
+				'orderby'        => array(
+					'menu_order' => 'ASC',
+					'title'      => 'ASC',
+				),
+				'fields'         => 'ids',
+			)
+		);
+	}
+
+	return $ids;
+}
+
+/**
+ * Callback for the next_project field.
+ *
+ * @param array $post The prepared post data (includes 'id').
+ * @return array|null Next project info, or null if there is nothing to link to.
+ */
+function fcp_get_next_project( $post ) {
+	$ids   = fcp_get_ordered_project_ids();
+	$total = count( $ids );
+	$index = array_search( (int) $post['id'], $ids, true );
+
+	// Not found, or only one project: no Next Up.
+	if ( false === $index || $total < 2 ) {
+		return null;
+	}
+
+	// Loop from the last project back to the first.
+	$next_index = ( $index + 1 ) % $total;
+	$next_id    = $ids[ $next_index ];
+
+	return array(
+		'id'           => $next_id,
+		'title'        => html_entity_decode( get_the_title( $next_id ), ENT_QUOTES, 'UTF-8' ),
+		'slug'         => get_post_field( 'post_name', $next_id ),
+		'project_type' => function_exists( 'get_field' ) ? (string) get_field( 'project_type', $next_id ) : '',
+		'position'     => $next_index + 1,
+		'total'        => $total,
+	);
+}
