@@ -87,30 +87,42 @@ function fcp_register_post_types() {
 add_action( 'init', 'fcp_register_post_types' );
 
 /**
- * Register Custom Taxonomies (all assigned to the Work CPT).
+ * The custom taxonomies (all assigned to the Work CPT).
+ *
+ * @return array key => array( plural label, singular label, URL slug ).
+ */
+function fcp_get_taxonomies() {
+	return array(
+		'build'         => array( __( 'Build', 'frances-portfolio' ), __( 'Build', 'frances-portfolio' ), 'build' ),
+		'tech-stack'    => array( __( 'Tech Stack', 'frances-portfolio' ), __( 'Tech Stack', 'frances-portfolio' ), 'tech-stack' ),
+		'collaboration' => array( __( 'Work With', 'frances-portfolio' ), __( 'Work With', 'frances-portfolio' ), 'collaboration' ),
+		'work-category' => array( __( 'Categories', 'frances-portfolio' ), __( 'Category', 'frances-portfolio' ), 'work-category' ),
+	);
+}
+
+/**
+ * Register Custom Taxonomies.
  */
 function fcp_register_taxonomies() {
 
-	// key => array( plural label, singular label, URL slug ).
-	$taxonomies = array(
-		'build'         => array( 'Build', 'Build', 'build' ),
-		'tech-stack'    => array( 'Tech Stack', 'Tech Stack', 'tech-stack' ),
-		'collaboration' => array( 'Work With', 'Work With', 'collaboration' ),
-		'work-category' => array( 'Categories', 'Category', 'work-category' ),
-	);
-
-	foreach ( $taxonomies as $key => $tax ) {
+	foreach ( fcp_get_taxonomies() as $key => $tax ) {
 
 		$labels = array(
 			'name'          => $tax[0],
 			'singular_name' => $tax[1],
 			'menu_name'     => $tax[0],
-			'all_items'     => 'All ' . $tax[0],
-			'edit_item'     => 'Edit ' . $tax[1],
-			'add_new_item'  => 'Add New ' . $tax[1],
-			'new_item_name' => 'New ' . $tax[1] . ' Name',
-			'search_items'  => 'Search ' . $tax[0],
-			'not_found'     => 'No ' . strtolower( $tax[0] ) . ' found.',
+			/* translators: %s: taxonomy name (plural). */
+			'all_items'     => sprintf( __( 'All %s', 'frances-portfolio' ), $tax[0] ),
+			/* translators: %s: taxonomy name (singular). */
+			'edit_item'     => sprintf( __( 'Edit %s', 'frances-portfolio' ), $tax[1] ),
+			/* translators: %s: taxonomy name (singular). */
+			'add_new_item'  => sprintf( __( 'Add New %s', 'frances-portfolio' ), $tax[1] ),
+			/* translators: %s: taxonomy name (singular). */
+			'new_item_name' => sprintf( __( 'New %s Name', 'frances-portfolio' ), $tax[1] ),
+			/* translators: %s: taxonomy name (plural). */
+			'search_items'  => sprintf( __( 'Search %s', 'frances-portfolio' ), $tax[0] ),
+			/* translators: %s: taxonomy name (plural, lowercase). */
+			'not_found'     => sprintf( __( 'No %s found.', 'frances-portfolio' ), strtolower( $tax[0] ) ),
 		);
 
 		$args = array(
@@ -128,3 +140,30 @@ function fcp_register_taxonomies() {
 	}
 }
 add_action( 'init', 'fcp_register_taxonomies' );
+
+/**
+ * On activation: register the post types and taxonomies, then flush the rewrite rules
+ * so their URLs work straight away (activation runs before init).
+ *
+ * @link https://developer.wordpress.org/plugins/plugin-basics/activation-deactivation-hooks/
+ */
+function fcp_activate() {
+	fcp_register_post_types();
+	fcp_register_taxonomies();
+	flush_rewrite_rules();
+}
+
+/**
+ * On deactivation: remove the post types and taxonomies, then flush the rewrite rules
+ * so their URLs are cleared. The posts themselves stay in the database.
+ */
+function fcp_deactivate() {
+	unregister_post_type( 'portfolio-project' );
+	unregister_post_type( 'experience' );
+
+	foreach ( array_keys( fcp_get_taxonomies() ) as $key ) {
+		unregister_taxonomy( $key );
+	}
+
+	flush_rewrite_rules();
+}

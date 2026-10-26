@@ -25,7 +25,20 @@ function fcp_register_rest_fields() {
 		array(
 			'get_callback'    => 'fcp_get_next_project',
 			'update_callback' => null,
-			'schema'          => null,
+			'schema'          => array(
+				'description' => __( 'The next project for the Work Detail "Next Up" link (the last project loops back to the first).', 'frances-portfolio' ),
+				'type'        => array( 'object', 'null' ),
+				'context'     => array( 'view', 'edit', 'embed' ),
+				'readonly'    => true,
+				'properties'  => array(
+					'id'           => array( 'type' => 'integer' ),
+					'title'        => array( 'type' => 'string' ),
+					'slug'         => array( 'type' => 'string' ),
+					'project_type' => array( 'type' => 'string' ),
+					'position'     => array( 'type' => 'integer' ),
+					'total'        => array( 'type' => 'integer' ),
+				),
+			),
 		)
 	);
 }
