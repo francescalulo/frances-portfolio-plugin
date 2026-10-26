@@ -380,6 +380,29 @@
             "placeholder": ""
         },
         {
+            "key": "field_6ade5fec2cc89",
+            "label": "Site Preview Embed Width",
+            "name": "site_preview_embed_width",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Leave empty for responsive sites. For a site not built for small screens (e.g. a game), the width it needs in px, e.g. 1024. The preview shows it at that width, scaled to fit.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 320,
+            "max": 1920,
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "px"
+        },
+        {
             "key": "field_6ad6a32dc69e9",
             "label": "Mockups",
             "name": "",
@@ -502,5 +525,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1792487744
+    "modified": 1792959532
 }
